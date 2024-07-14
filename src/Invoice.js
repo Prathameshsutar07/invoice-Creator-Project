@@ -19,8 +19,8 @@ const Invoice = () => {
 
   useEffect(() => {
     const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const totals=total+(total*5/100);
-    setTotalAmount(totals);
+    //const totals=total+(total*5/100);
+    setTotalAmount(total);
   }, [items]);
 
   const generateInvoiceNumber = () => {
@@ -130,11 +130,11 @@ const InvoiceTemplate = React.forwardRef(({ customer, items, invoiceNumber, curr
           <tr key={index}>
             <td>{item.name}</td>
             <td>{item.quantity}</td>
-            <td>{item.price}</td>
+            <td>{item.price-(item.price*5/100)}</td>
             <td>CST</td>
             <td>5</td>
             <td>{(item.price * item.quantity * 0.05).toFixed(2)}</td>
-            <td>{(item.price * item.quantity * 1.05).toFixed(2)}</td>
+            <td>{(item.price * item.quantity ).toFixed(2)}</td>
           </tr>
         ))}
       </tbody>
