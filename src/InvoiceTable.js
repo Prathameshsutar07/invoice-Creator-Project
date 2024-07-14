@@ -70,6 +70,7 @@ const InvoiceTable = ({ items, setItems }) => {
         </tbody>
       </table>
     </div>
+  
   );
 };
 
